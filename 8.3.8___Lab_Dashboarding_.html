@@ -1,0 +1,1515 @@
+<!DOCTYPE html><html><head>
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 63bc06e87a587307c95ebdf6 background-color-white remove-padding-top ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$584266984$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="article__header-wrapper background-color-white remove-padding-top ">
+        <div class="article__header ">
+              <div class="article__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$584266984$--><!---->
+                                    <block-view modelid="63bc06e87a587307c95ebdf7" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bc06e87a587307c95ebdf7" class="63bc06e87a587307c95ebdf7 block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bc06e87a587307c95ebdf7" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$--> <div class=" block__title ">
+                      <!--?lit$584266984$--><heading-view aria-hidden="true" id="63bc06e87a587307c95ebdf7-heading-view" headingtitle="​​Lab - Dashboarding​" modelid="63bc06e87a587307c95ebdf7" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="block-heading" aria-level="3">
+        <span class="aria-label"> <!--?lit$584266984$-->Incomplete &nbsp;<!--?lit$584266984$-->​​Lab - Dashboarding​</span>
+        </div>
+      </div>
+    </heading-view>
+                        <div tabindex="0" role="heading" class="block__title-inner " aria-level="3">
+                        <span class="accessibility-completion-indicator"><!--?lit$584266984$-->Incomplete </span>
+                        <!--?lit$584266984$-->​​Lab - Dashboarding​</div>
+                      </div>
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><text-view modelid="63bc06e87a587307c95ebdf8" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bc06e87a587307c95ebdf8" class="component text 63bc06e87a587307c95ebdf8  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$584266984$--><h2>Objectives</h2><p>This lab uses Tableau Desktop Public, a free version of the Tableau desktop product, to create a simple dashboard to answer questions based on a sample movie dataset.</p><p><strong>Part 1: Connecting to the Data</strong></p><p><strong>Part 2: Answering the Questions</strong></p><h2>Background/Scenario</h2><p>Dashboards are pages that can display multiple views of your data on the same screen. A dashboard can also be interactive, enabling a viewer to select or highlight information. Using the built-in Tableau dataset <strong>Hollywood’s Most Profitable Stories</strong>, you will create a dashboard that displays the highest rated movies, the most profitable genre, and interactive details about each movie.</p><h2>Required Resources</h2><ul><li><p>PC with internet access</p></li><li><p>Tableau Desktop App</p></li></ul></div>
+                      </div>
+                    </div>
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="63bd1779410ba800ca69fb02" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bd1779410ba800ca69fb02" class="63bd1779410ba800ca69fb02 block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bd1779410ba800ca69fb02" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><text-view modelid="63bd1779410ba800ca69fb03" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bd1779410ba800ca69fb03" class="component text 63bd1779410ba800ca69fb03  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$584266984$--><h2>Instructions</h2><h3>Part 1: Connecting to the Data</h3><p>Data analysis starts with a question or an issue. In this part, you will create worksheets that will help you answer the following questions:</p><ul><li><p>How are the most profitable movies rated by viewers and critics?</p></li><li><p>How much revenue did each of the top-rated films generate for its studio?</p></li><li><p>Which movie had the highest worldwide gross?</p></li></ul><p><strong>Step 1: Connect to the dataset.</strong></p><ol start="1" style="list-style-type: lower-alpha;"><li><p>Open Tableau Desktop. In the start page, select <strong>Sample Data Sets</strong> in the <strong>Discover</strong> Pane on the right.</p></li><li><p>Scroll down to the <strong>Entertainment</strong> category. Download the <strong>Hollywood’s Most Profitable Stories</strong> Dataset (csv).</p></li><li><p>When the download is completed, return to Tableau Desktop. In the <strong>Connect</strong> pane, select<strong> Text file</strong>.</p></li><li><p>Locate and open the <strong>Hollywood’s Most Profitable Stories CSV</strong> file that you downloaded previously.</p></li></ol></div>
+                      </div>
+                    </div>
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="63bd185b4d4bb60023341a1f" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bd185b4d4bb60023341a1f" class="63bd185b4d4bb60023341a1f block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bd185b4d4bb60023341a1f" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><text-view modelid="63bd185b4d4bb60023341a20" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bd185b4d4bb60023341a20" class="component text 63bd185b4d4bb60023341a20  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$584266984$--><p><strong>Step 2: Create a composite of the two ratings in the database.</strong></p><ol start="1" style="list-style-type:lower-alpha"><li><p>In <strong>Data Source</strong> summary page, it is necessary to create a new field using both the <strong>Audience Score %</strong> and the <strong>Rotten Tomatoes %</strong> fields to determine the overall rating.</p><p>Click the dropdown arrow at the top of any column. Select <strong>Create Calculated Field</strong>.</p></li><li><p>Name the calculated field <strong>Combined Rating</strong>. Copy and paste the formula shown in the space where you see orange text to create the calculation.</p><pre class="query-wrap">([Audience  score %]+[Rotten Tomatoes %])/2</pre></li><li><p>Verify the calculation is valid. Select <strong>OK</strong> to create the field. Check the column headings to verify the new column was created and that the result of the calculation is displayed.</p></li></ol></div>
+                      </div>
+                    </div>
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="63bd194b78b26500186798d2" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bd194b78b26500186798d2" class="63bd194b78b26500186798d2 block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bd194b78b26500186798d2" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><opentextbox-view modelid="63bd195906763100d1322c03" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="63bd195906763100d1322c03" class="component opentextbox 63bd195906763100d1322c03  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bd195906763100d1322c03" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$584266984$--> <div class="openTextBox__preText"><!--?lit$584266984$-->What type of field is shown for the new Combined Score?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$584266984$-->Answer Area
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$584266984$-->
+                      <!--?lit$584266984$-->Number (decimal)
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$584266984$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$584266984$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$584266984$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="63bd19d05e64e000f15e7d58" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bd19d05e64e000f15e7d58" class="63bd19d05e64e000f15e7d58 block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bd19d05e64e000f15e7d58" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><text-view modelid="63bd19d05e64e000f15e7d59" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bd19d05e64e000f15e7d59" class="component text 63bd19d05e64e000f15e7d59  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$584266984$--><h3>Part 2: Answering the Questions.</h3><p><strong>Step 1: Answer question 1.</strong></p><p>You will answer the question, “How are the most profitable movies rated by viewers and critics?”</p><ol start="1" style="list-style-type: lower-alpha;"><li><p>Click the <strong>Sheet 1</strong> tab at the bottom of the screen to open the workspace. The fields in your data table are located in the left panel.</p></li><li><p>Drag the field <strong>Combined Rating</strong> to the Columns shelf at the top of the workspace.</p></li><li><p>For the first analysis, drag the <strong>Genre</strong> and the <strong>Film</strong> fields to the <strong>Rows</strong> shelf at the top of the workspace in that order.</p></li></ol></div>
+                      </div>
+                    </div>
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="63bd1a4d3b3fa00011c47bfb" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bd1a4d3b3fa00011c47bfb" class="63bd1a4d3b3fa00011c47bfb block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bd1a4d3b3fa00011c47bfb" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><opentextbox-view modelid="63bd1a4d3b3fa00011c47bfc" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="63bd1a4d3b3fa00011c47bfc" class="component opentextbox 63bd1a4d3b3fa00011c47bfc  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bd1a4d3b3fa00011c47bfc" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$584266984$--> <div class="openTextBox__preText"><!--?lit$584266984$-->What type of chart does Tableau select by default to visualize this data?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$584266984$-->Answer Area
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$584266984$-->
+                      <!--?lit$584266984$-->Horizontal bar
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$584266984$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$584266984$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$584266984$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="63bd1a9b5e64e000f15e7d5b" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bd1a9b5e64e000f15e7d5b" class="63bd1a9b5e64e000f15e7d5b block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bd1a9b5e64e000f15e7d5b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><text-view modelid="63bd1a9b5e64e000f15e7d5c" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bd1a9b5e64e000f15e7d5c" class="component text 63bd1a9b5e64e000f15e7d5c  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$584266984$--><ol start="4" style="list-style-type:lower-alpha"><li><p>Now we will create a filter to show only the top 10 films by <strong>Combined Rating</strong>. Drag <strong>Film</strong> from the <strong>Tables</strong> heading to the <strong>Filters</strong> card to its right.</p></li><li><p>Using the <strong>Top</strong> tab in the<strong> Filter [Film]</strong> window, select <strong>By Field</strong>. If the <strong>Combined Rating</strong> does not appear in the <strong>by</strong> field dropdown, click the arrow and select it. Click <strong>Apply</strong>. Choose <strong>OK</strong> to close the Filter settings.</p></li><li><p>Select the down arrow next to the Film heading on the chart. From the dropdown, select Field &gt; Combined Rating. The films in each genre will now be sorted by highest or lowest rating. Note that clicking once on the sort icon will sort from smallest to largest and clicking again will sort from largest to smallest. The icon reflects which sort order you are seeing.</p></li><li><p>If desired, change the bar color by using the Color selection in the <strong>Marks</strong> card.</p></li><li><p>It is necessary to create the mark for the Film field from the Tables heading to make the dashboard interactive. To do this, drag the Film field to the bottom of the <strong>Marks</strong> card.</p></li><li><p>Right click the sheet title at the bottom of the worksheet to Rename Sheet1 <strong>to Top 10 Rated Films by Genre</strong>.</p></li></ol></div>
+                      </div>
+                    </div>
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="63bd245878b26500186798d4" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bd245878b26500186798d4" class="63bd245878b26500186798d4 block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bd245878b26500186798d4" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><text-view modelid="63bd245878b26500186798d5" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bd245878b26500186798d5" class="component text 63bd245878b26500186798d5  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$584266984$--><p><strong>Step 2: Answer question 2.</strong></p><p>The next question to answer is “How profitable were each of the top-rated films?” A second worksheet is needed for this analysis.</p><ol start="1" style="list-style-type:lower-alpha"><li><p>Open a second worksheet using the + icon at the bottom of the screen.</p></li><li><p>Start by dragging the Film field to the Columns shelf. Then add Profitability to the Rows shelf. A chart showing the profitability of each film should be displayed.</p></li></ol></div>
+                      </div>
+                    </div>
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="63bd259b5e64e000f15e7d61" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bd259b5e64e000f15e7d61" class="63bd259b5e64e000f15e7d61 block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bd259b5e64e000f15e7d61" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><opentextbox-view modelid="63bd259b5e64e000f15e7d62" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="63bd259b5e64e000f15e7d62" class="component opentextbox 63bd259b5e64e000f15e7d62  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bd259b5e64e000f15e7d62" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$584266984$--> <div class="openTextBox__preText"><!--?lit$584266984$-->What type of chart is selected for the Profitability sheet?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$584266984$-->Answer Area
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$584266984$-->
+                      <!--?lit$584266984$-->Bar chart
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$584266984$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$584266984$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$584266984$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="63bd25cf78b26500186798d6" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bd25cf78b26500186798d6" class="63bd25cf78b26500186798d6 block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bd25cf78b26500186798d6" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><opentextbox-view modelid="63bd25cf78b26500186798d7" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="63bd25cf78b26500186798d7" class="component opentextbox 63bd25cf78b26500186798d7  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bd25cf78b26500186798d7" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$--> <div class="component__content">
+                      <div tabindex="0" class="component__body openTextBox__body">
+                        <div class="component__body-inner openTextBox__body-inner"><!--?lit$584266984$--><ol start="3" style="list-style-type: lower-alpha;"><li><p>Using the dropdown in the Marks card, select <strong>Circle</strong>. This will cause the profitability to show as a circle for each movie. Click the <strong>Detail</strong> selection in the Marks card, as well.</p></li><li><p>Because the dashboard will be interactive using the <strong>Film</strong> mark, drag the Film field to the bottom of the Marks card.</p></li></ol></div>
+                      </div>
+                    </div>
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$584266984$--> <div class="openTextBox__preText"><!--?lit$584266984$-->Which film had the highest profitability? Hover over the circle to see the film name.</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$584266984$-->Answer Area
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$584266984$-->
+                      <!--?lit$584266984$-->Fireproof
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$584266984$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$584266984$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$584266984$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="63bd2625410ba800ca69fb09" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bd2625410ba800ca69fb09" class="63bd2625410ba800ca69fb09 block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bd2625410ba800ca69fb09" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><text-view modelid="63bd2626410ba800ca69fb0a" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bd2626410ba800ca69fb0a" class="component text 63bd2626410ba800ca69fb0a  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$584266984$--><ol start="5" style="list-style-type: lower-alpha;"><li>Rename the sheet by double clicking on the sheet name and typing the new name, <strong>Movie Profitability</strong>.</li></ol><p><strong>Step 3: Answer question 3.</strong></p><p>The last question to be answered for the dashboard is “Which movie had the highest worldwide gross?” Create a <strong>new sheet</strong> to answer this question.</p><ol start="1" style="list-style-type:lower-alpha"><li><p>Drag the Film field to the Columns shelf. Drag the <strong>Worldwide Gross</strong> field to the Row shelf.</p></li><li><p>In the Marks card, select <strong>Square</strong> from the dropdown menu. Select <strong>Detail</strong> and drag the <strong>Film</strong> field to the bottom of the Marks card.</p></li><li><p>Rename the sheet <strong>Worldwide Gross</strong>.</p></li></ol></div>
+                      </div>
+                    </div>
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="63bd26914d4bb60023341a27" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bd26914d4bb60023341a27" class="63bd26914d4bb60023341a27 block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bd26914d4bb60023341a27" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><text-view modelid="63bd26924d4bb60023341a28" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bd26924d4bb60023341a28" class="component text 63bd26924d4bb60023341a28  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$584266984$--><h3>Part 3: Creating an Interactive Dashboard</h3><ol start="1" style="list-style-type:lower-alpha"><li><p>From the main menu, select <strong>Dashboard</strong> &gt; <strong>New Dashboard</strong>.</p></li><li><p>Under Dashboard tab, verify that the default dashboard is set for Desktop. If not, from the main menu, click <strong>Dashboard &gt; Device Layouts &gt; Add Desktop</strong>. Click <strong>Default</strong> in the Dashboard pane if you do not see the list of Sheets.</p></li><li><p>Under the Sheets list, the three sheets that were just created will be listed. Start creating the dashboard by dragging the first sheet to the workspace. The <strong>Top 10 Rated Films by Genre</strong> appears at the top of the workspace.</p></li><li><p>Click the space below the graph and drag the <strong>Horizontal</strong> object from the Objects list on the left to the highlighted space. Use the down arrow next to the container to select floating. Position and resize the container as desired.</p></li><li><p>While holding down the Shift key, drag the sheet <strong>Movie Profitability</strong> to the new horizontal tile. Repeat the process for the sheet <strong>Worldwide Gross</strong>.</p></li><li><p>Right-click the empty space in lower left of <strong>Top 10 Rated Films by Genr</strong>e and select <strong>Use as Filter</strong>.</p></li><li><p>Click any movie in the <strong>Top 10 Rated Films by Genre</strong> container.</p></li><li><p>The y-axis for a chart can be changed so that it remains the same for all movies, instead of adjusting based on the worldwide gross or profitability of the individual movie.</p><p>Right-click on the y-axis labels on the Worldwide Gross chart (0, 200, 400, 600). Select <strong>Edit Axis</strong> and then select <strong>Fixed</strong>. The start and end should be the lowest and highest values of the field.</p></li></ol></div>
+                      </div>
+                    </div>
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="63bd276506763100d1322c05" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bd276506763100d1322c05" class="63bd276506763100d1322c05 block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bd276506763100d1322c05" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><opentextbox-view modelid="63bd276506763100d1322c06" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="63bd276506763100d1322c06" class="component opentextbox 63bd276506763100d1322c06  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bd276506763100d1322c06" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$584266984$--> <div class="openTextBox__preText"><!--?lit$584266984$-->What happens when you close the Edit Axis settings and select a few different movies?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$584266984$-->Answer Area
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$584266984$-->
+                      <!--?lit$584266984$-->The datapoint in the Worldwide Gross moves up and down the scale to reflect the gross of the selected movie.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$584266984$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$584266984$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$584266984$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="63bd27e778b26500186798da" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bd27e778b26500186798da" class="63bd27e778b26500186798da block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bd27e778b26500186798da" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><opentextbox-view modelid="63bd27e778b26500186798db" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="63bd27e778b26500186798db" class="component opentextbox 63bd27e778b26500186798db  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bd27e778b26500186798db" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$--> <div class="component__content">
+                      <div tabindex="0" class="component__body openTextBox__body">
+                        <div class="component__body-inner openTextBox__body-inner"><!--?lit$584266984$--><h2>Reflection Questions</h2></div>
+                      </div>
+                    </div>
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$584266984$--> <div class="openTextBox__preText"><!--?lit$584266984$-->1. The dashboard that you just created is very simple. What are some real-world applications for interactive dashboards such as this?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$584266984$-->Answer Area
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$584266984$-->
+                      <!--?lit$584266984$-->Answers will vary.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$584266984$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$584266984$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$584266984$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="63bd282a3b3fa00011c47c03" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bd282a3b3fa00011c47c03" class="63bd282a3b3fa00011c47c03 block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bd282a3b3fa00011c47c03" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><opentextbox-view modelid="63bd282a3b3fa00011c47c04" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="63bd282a3b3fa00011c47c04" class="component opentextbox 63bd282a3b3fa00011c47c04  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bd282a3b3fa00011c47c04" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$584266984$--> <div class="openTextBox__preText"><!--?lit$584266984$-->2. Experiment with the various settings available in Tableau for formatting dashboards. Preview your dashboard by selecting Phone from the device choices. Is the auto-generated layout acceptable for use with a smartphone? Explain.</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$584266984$-->Answer Area
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$584266984$-->
+                      <!--?lit$584266984$-->yes
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$584266984$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$584266984$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$584266984$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="63bd286306763100d1322c08" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="63bd286306763100d1322c08" class="63bd286306763100d1322c08 block background-color-white remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63bd286306763100d1322c08" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$584266984$--><!----><opentextbox-view modelid="63bd286306763100d1322c09" class="is-full" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="63bd286306763100d1322c09" class="component opentextbox 63bd286306763100d1322c09  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="63bd286306763100d1322c09" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$--> <div class="component__content">
+                      <div tabindex="0" class="component__body openTextBox__body">
+                        <div class="component__body-inner openTextBox__body-inner"><!--?lit$584266984$--><h2>Challenge Activity</h2><p>Now you have created an interactive dashboard to answer questions regarding movies. Come up with a few questions and try to answer them using the available data.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$584266984$-->
+                  <!--?lit$584266984$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$584266984$--> <div class="openTextBox__preText"><!--?lit$584266984$-->For example, which studios created the top 3 audience rated movies in 2011?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$584266984$-->Answer Area
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$584266984$-->
+                      <!--?lit$584266984$-->Independent and the Weinstein Company
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$584266984$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$584266984$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$584266984$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$584266984$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="small" browser="Chrome" os="linux" dir="ltr" location="page" theme="dark" orientation="portrait" themetype="block-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$584266984$-->Show All Answers</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$584266984$-->Hide All Answers</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$584266984$-->Clear All Responses</button>         
+            </div>
+            <!--?lit$584266984$--><hr>
+            <!--?lit$584266984$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$584266984$-->© 2017 - 2023 Cisco and/or its affiliates. All rights reserved. Cisco Public
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script></body>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            .querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            .querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      var event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        .querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        .querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        .querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      .querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </html>
